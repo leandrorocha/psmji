@@ -100,17 +100,6 @@
 
 		.timeline-dot {
 			position: absolute;
-			left: -14px;
-			width: 12px;
-			height: 12px;
-			background-color: white;
-			border: 2px solid #a02c64;
-			border-radius: 50%;
-			z-index: 1;
-		}
-
-		.timeline-dot {
-			position: absolute;
 			left: -25px;
 			width: 12px;
 			height: 12px;
@@ -129,9 +118,12 @@
 
 		.container-timeline-cards .card-header {
 			padding: 10px;
-			text-transform: unset;
+			text-transform: unset!important;
 			cursor: pointer;
 			border-bottom: none;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 		}
 
 		.container-timeline-cards .card-body {
@@ -140,6 +132,7 @@
 
 		.container-timeline-cards .card-header h5 {
 			color: #9E1F63;
+			margin: 0;
 		}
 
 		.collapse {
@@ -148,6 +141,11 @@
 
 		.collapse.show {
 			display: block;
+		}
+
+		.toggle-icon {
+			font-size: 18px;
+			color: #9E1F63;
 		}
 	</style>
 </head>
@@ -776,7 +774,8 @@
 									<div class="card">
 										<div class="card-header" onclick="toggleCollapse('beforeMeeting')">
 											<span class="timeline-dot"></span>
-											<h5 class="mb-0">Antes do Encontro:</h5>
+											<h5>Antes do Encontro:</h5>
+											<span id="icon-beforeMeeting" class="toggle-icon">+</span>
 										</div>
 										<div class="card-body collapse" id="beforeMeeting">
 											<!-- Lista Ordenada -->
@@ -802,9 +801,10 @@
 										</div>
 									</div>
 									<div class="card">
-										<div class="card-header" onclick="toggleCollapse('duringMeeting')"><span
-												class="timeline-dot"></span>
-											<h5 class="mb-0">Durante o Encontro:</h5>
+										<div class="card-header" onclick="toggleCollapse('duringMeeting')">
+											<span class="timeline-dot"></span>
+											<h5>Durante o Encontro:</h5>
+											<span id="icon-duringMeeting" class="toggle-icon">+</span>
 										</div>
 										<div class="card-body collapse" id="duringMeeting">
 											<!-- Lista Ordenada -->
@@ -832,9 +832,10 @@
 										</div>
 									</div>
 									<div class="card">
-										<div class="card-header" onclick="toggleCollapse('afterMeeting')"><span
-												class="timeline-dot"></span>
-											<h5 class="mb-0">Depois do Encontro:</h5>
+										<div class="card-header" onclick="toggleCollapse('afterMeeting')">
+											<span class="timeline-dot"></span>
+											<h5>Depois do Encontro:</h5>
+											<span id="icon-afterMeeting" class="toggle-icon">+</span>
 										</div>
 										<div class="card-body collapse" id="afterMeeting">
 											<!-- Lista Ordenada -->
@@ -1197,7 +1198,13 @@
 	<script>
 		function toggleCollapse(id) {
 			var content = document.getElementById(id);
+			var icon = document.getElementById('icon-' + id);
 			content.classList.toggle('show');
+			if (content.classList.contains('show')) {
+				icon.textContent = '-';
+			} else {
+				icon.textContent = '+';
+			}
 		}
 	</script>
 </body>

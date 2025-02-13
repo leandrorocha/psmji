@@ -61,6 +61,95 @@
 
 	<!-- Project CSS -->
 	<link rel="stylesheet" href="../../css/style.css" />
+
+	<style>
+		.container-timeline-cards {
+			position: relative;
+			padding-left: 26px;
+			margin: 64px 0;
+		}
+
+		.timeline {
+			position: absolute;
+			left: 8px;
+			top: -30px;
+			bottom: -30px;
+			width: 1px;
+			background-color: #a02c64;
+		}
+
+		.timeline::before,
+		.timeline::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			width: 10px;
+			height: 10px;
+			background-color: #a02c64;
+			border-radius: 50%;
+			transform: translateX(-50%);
+		}
+
+		.timeline::before {
+			top: 0;
+		}
+
+		.timeline::after {
+			bottom: 0;
+		}
+
+		.timeline-dot {
+			position: absolute;
+			left: -14px;
+			width: 12px;
+			height: 12px;
+			background-color: white;
+			border: 2px solid #a02c64;
+			border-radius: 50%;
+			z-index: 1;
+		}
+
+		.timeline-dot {
+			position: absolute;
+			left: -25px;
+			width: 12px;
+			height: 12px;
+			background-color: #FFFFFF;
+			border: 1px solid #a02c64;
+			border-radius: 50%;
+			z-index: 1;
+		}
+
+		.container-timeline-cards .card {
+			margin-bottom: 24px;
+			position: relative;
+			border: 1px solid #9E1F63;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		.container-timeline-cards .card-header {
+			padding: 10px;
+			text-transform: unset;
+			cursor: pointer;
+			border-bottom: none;
+		}
+
+		.container-timeline-cards .card-body {
+			border-top: 1px solid #9E1F63;
+		}
+
+		.container-timeline-cards .card-header h5 {
+			color: #9E1F63;
+		}
+
+		.collapse {
+			display: none;
+		}
+
+		.collapse.show {
+			display: block;
+		}
+	</style>
 </head>
 
 <body>
@@ -252,7 +341,8 @@
 								<div class="col-12 col-md-10 col-lg-8">
 									<video width="100%" height="auto" controls controlslist="nodownload"
 										poster="../assets/videos/modulo3/modulo3-entrevista-alisson-cleomar.png">
-										<source src="https://www.dropbox.com/scl/fi/mcseqrgljhpg9zjn1cx1s/modulo3-entrevista-alisson-cleomar.mp4?rlkey=3xn9643i10n54wmm5ci58r0p9&st=97y1880x&raw=1"
+										<source
+											src="https://www.dropbox.com/scl/fi/mcseqrgljhpg9zjn1cx1s/modulo3-entrevista-alisson-cleomar.mp4?rlkey=3xn9643i10n54wmm5ci58r0p9&st=97y1880x&raw=1"
 											type="video/mp4">
 									</video>
 								</div>
@@ -271,7 +361,8 @@
 									<div class="video-local my-3">
 										<video width="100%" controls
 											poster="../assets/videos/modulo3/modulo3-entrevista_eufelia.png">
-											<source src="https://www.dropbox.com/scl/fi/66ymb3wwysiq1k0bzrg5h/modulo3-entrevista_eufelia.mp4?rlkey=jgetrbuaxos8svnxu6z8xavad&st=9h4ho352&raw=1"
+											<source
+												src="https://www.dropbox.com/scl/fi/66ymb3wwysiq1k0bzrg5h/modulo3-entrevista_eufelia.mp4?rlkey=jgetrbuaxos8svnxu6z8xavad&st=9h4ho352&raw=1"
 												type="video/mp4">
 											Seu navegador não suporta carregar o vídeo.
 										</video>
@@ -377,7 +468,8 @@
 															<p class="mb-0 text-center">Fonte: Youtube</p>
 														</div>
 
-														<p>Além disso, o Bem-viver também passa pela luta pelo direito a terra e
+														<p>Além disso, o Bem-viver também passa pela luta pelo direito a
+															terra e
 															que esta terra seja preservada.</p>
 													</div>
 												</div>
@@ -679,77 +771,95 @@
 								<p>No primeiro encontro, tudo deve ser acordado entre as pessoas. Temos um passo a passo
 									desse primeiro momento:</p>
 
-								<div class="my-5">
-									<h5 class="mb-0">Antes do Encontro:</h5>
-									<!-- Lista Ordenada -->
-									<div class="obj-lista ml-md-3">
-										<ul class="list-group">
-											<li class="list-group-item">Reforce no grupo de WhatsApp ou entre as pessoas
-												envolvidas a data e horário do primeiro encontro;</li>
-											<li class="list-group-item">Prepare um passo a passo desse primeiro
-												encontro;
-											</li>
-											<li class="list-group-item">Chegue um pouquinho cedo para arrumar o local de
-												realização das atividades;</li>
-											<li class="list-group-item">Priorize a organização do espaço para realizar a
-												atividade em um círculo para que todas as pessoas estejam na mesma
-												altura e
-												possam saber onde cada um/a esta;</li>
-										</ul>
+								<div class="container-timeline-cards">
+									<div class="timeline"></div>
+									<div class="card">
+										<div class="card-header" onclick="toggleCollapse('beforeMeeting')">
+											<span class="timeline-dot"></span>
+											<h5 class="mb-0">Antes do Encontro:</h5>
+										</div>
+										<div class="card-body collapse" id="beforeMeeting">
+											<!-- Lista Ordenada -->
+											<div class="obj-lista ml-md-3">
+												<ul class="list-group">
+													<li class="list-group-item">Reforce no grupo de WhatsApp ou entre as
+														pessoas
+														envolvidas a data e horário do primeiro encontro;</li>
+													<li class="list-group-item">Prepare um passo a passo desse primeiro
+														encontro;
+													</li>
+													<li class="list-group-item">Chegue um pouquinho cedo para arrumar o
+														local de
+														realização das atividades;</li>
+													<li class="list-group-item">Priorize a organização do espaço para
+														realizar a
+														atividade em um círculo para que todas as pessoas estejam na
+														mesma
+														altura e
+														possam saber onde cada um/a esta;</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" onclick="toggleCollapse('duringMeeting')"><span
+												class="timeline-dot"></span>
+											<h5 class="mb-0">Durante o Encontro:</h5>
+										</div>
+										<div class="card-body collapse" id="duringMeeting">
+											<!-- Lista Ordenada -->
+											<div class="obj-lista ml-md-3">
+												<ul class="list-group">
+													<li class="list-group-item">Iniciem com uma Dinâmica de apresentação
+														das pessoas;</li>
+													<li class="list-group-item">Façam a apresentação do objetivo do
+														encontro;
+													</li>
+													<li class="list-group-item">Convidem as pessoas para realizarem as
+														atividades propostas;</li>
+													<li class="list-group-item">Com a finalização das atividades, façam
+														uma avaliação de como foi o encontro. Assim, para notar se nosso
+														Programa de Saúde Mental, precisa de algum cuidado mais
+														especifico (como mais adubo, poda ou mudar a área da plantação),
+														eh necessário que cada encontro tenha uma avaliação de como
+														foram vivenciadas as atividades.
+														Os/as facilitadores/as podem perguntar o que os/as participantes
+														acharam das atividades;</li>
+													<li class="list-group-item">Avaliem o formato, qual será a
+														periodicidade, o horário e local de realização;</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" onclick="toggleCollapse('afterMeeting')"><span
+												class="timeline-dot"></span>
+											<h5 class="mb-0">Depois do Encontro:</h5>
+										</div>
+										<div class="card-body collapse" id="afterMeeting">
+											<!-- Lista Ordenada -->
+											<div class="obj-lista ml-md-3">
+												<ul class="list-group">
+													<li class="list-group-item">Divida entre o grupo que esta ajudando
+														na organização uma divisão de atividades;</li>
+													<li class="list-group-item">Avaliem como foi o encontro;</li>
+													<li class="list-group-item">Organizem seus calendários para estarem
+														presentes nos próximos encontros a partir dos acordos firmados
+														de dia, horário, local e formato do encontro;</li>
+													<li class="list-group-item">Estejam abertos/as para realização de
+														encontros individuais com os/as participantes do grupo que
+														queiram conversar de forma mais privada sobre seus sentimentos;
+													</li>
+													<li class="list-group-item">Tenha momentos de autocuidado para ficar
+														bem para cuidar das outras pessoas;</li>
+												</ul>
+											</div>
+										</div>
 									</div>
 								</div>
 
-								<div class="my-5">
-									<h5 class="mb-0">Durante o Encontro:</h5>
-									<!-- Lista Ordenada -->
-									<div class="obj-lista ml-md-3">
-										<ul class="list-group">
-											<li class="list-group-item">Iniciem com uma Dinâmica de apresentação das
-												pessoas;</li>
-											<li class="list-group-item">Façam a apresentação do objetivo do encontro;
-											</li>
-											<li class="list-group-item">Convidem as pessoas para realizarem as
-												atividades
-												propostas;</li>
-											<li class="list-group-item">Com a finalização das atividades, façam uma
-												avaliação de como foi o encontro. Assim, para notar se nosso Programa de
-												Saúde Mental, precisa de algum cuidado mais especifico (como mais adubo,
-												poda ou mudar a área da plantação), eh necessário que cada encontro
-												tenha
-												uma avaliação de como foram vivenciadas as atividades. Os/as
-												facilitadores/as podem perguntar o que os/as participantes acharam das
-												atividades;</li>
-											<li class="list-group-item">Avaliem o formato, qual será a periodicidade, o
-												horário e local de realização;</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="my-5">
-									<h5 class="mb-0">Depois do Encontro:</h5>
-									<!-- Lista Ordenada -->
-									<div class="obj-lista ml-md-3">
-										<ul class="list-group">
-											<li class="list-group-item">Divida entre o grupo que esta ajudando na
-												organização uma divisão de atividades;</li>
-											<li class="list-group-item">Avaliem como foi o encontro;</li>
-											<li class="list-group-item">Organizem seus calendários para estarem
-												presentes
-												nos próximos encontros a partir dos acordos firmados de dia, horário,
-												local
-												e formato do encontro;</li>
-											<li class="list-group-item">Estejam abertos/as para realização de encontros
-												individuais com os/as participantes do grupo que queiram conversar de
-												forma
-												mais privada sobre seus sentimentos;</li>
-											<li class="list-group-item">Tenha momentos de autocuidado para ficar bem
-												para
-												cuidar das outras pessoas;</li>
-										</ul>
-									</div>
-								</div>
-
-								<p>Com todo esse cuidado do Programa de Cultivo da Saúde Mental Indígena para jovens,
+								<p class="my-5">Com todo esse cuidado do Programa de Cultivo da Saúde Mental Indígena
+									para jovens,
 									acreditamos que vocês irão colher bons frutos nos territórios. Realmente, leva-se um
 									tempo para encontrar a planta mais adequada, o local para fazer esse cultivo, as
 									pessoas que irão cuidar da terra de forma coletiva, a processo de adubação e o
@@ -767,7 +877,8 @@
 								<div class="video-local my-3">
 									<video width="100%" controls
 										poster="../assets/videos/modulo3/modulo3-troncos-velhos.png">
-										<source src="https://www.dropbox.com/scl/fi/fets71gxyfrfhokkgcof6/modulo3-troncos-velhos.mp4?rlkey=3nxtqo5rz2w02o4980nv76n81&st=el39q3mg&raw=1"
+										<source
+											src="https://www.dropbox.com/scl/fi/fets71gxyfrfhokkgcof6/modulo3-troncos-velhos.mp4?rlkey=3nxtqo5rz2w02o4980nv76n81&st=el39q3mg&raw=1"
 											type="video/mp4">
 										Seu navegador não suporta carregar o vídeo.
 									</video>
@@ -1082,5 +1193,12 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		function toggleCollapse(id) {
+			var content = document.getElementById(id);
+			content.classList.toggle('show');
+		}
+	</script>
 </body>
 </html>

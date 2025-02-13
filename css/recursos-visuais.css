@@ -3261,10 +3261,10 @@ ANIMATIONS
   gap: 4px;
 }
 
-.active {
+.cardContainer .active {
   transform: translateZ(0px) rotateY(180deg) !important;
 }
-.active:after {
+.cardContainer .active:after {
   display: none;
 }
 

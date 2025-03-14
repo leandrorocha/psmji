@@ -147,7 +147,8 @@ section .page-nav {
 	flex-direction: row;
 }
 
-section .page-nav .button-primary {
+section .page-nav .button-primary,
+section .page-nav .button-secondary {
 	min-width: 30%;
 }
 
